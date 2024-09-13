@@ -18,9 +18,6 @@ const postSchema = new mongoose.Schema(
             type: String,
             required: true,
         }, 
-        photo: {
-            type: String
-        }, 
         location: {
             type: String, 
             required: true,
@@ -33,12 +30,11 @@ const postSchema = new mongoose.Schema(
             type: Date, 
             required: true,
         }, 
-        vibeCheck: {
-            type: Boolean, 
-            required: true,
-        }, 
         insight: {
             type: String,
+        },
+        vibeCheck: {
+            type: Boolean,
         },
         author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, 
         comments: [commentSchema],
