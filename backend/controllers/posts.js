@@ -5,6 +5,7 @@ module.exports = {
     show,
     create,
     postDelete,
+    update,
 }
 
 // INDEX FUNCTIONALITY 
@@ -47,13 +48,32 @@ async function create(req, res) {
 async function postDelete(req, res) {
     try {
       const post = await Post.findById(req.params.postId);
-  
+      // check permissions
       if (!post.author.equals(req.user._id)) {
         return res.status(403).send("You're not allowed to do that!");
       }
-  
       const deletedPost = await Post.findByIdAndDelete(req.params.postId);
       res.status(200).json(deletedPost);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  };
+
+// UPDATE FUNCTIONALITY 
+async function update(req, res) {
+    try {
+      const post = await Post.findById(req.params.postId);
+      // check permissions
+      if (!post.author.equals(req.user._id)) {
+        return res.status(403).send("You're not allowed to do that!");
+      }
+      const updatedPost = await Post.findByIdAndUpdate(
+        req.params.postId,
+        req.body,
+        { new: true }
+      );
+      updatedPost._doc.author = req.user;
+      res.status(200).json(updatedPost);
     } catch (error) {
       res.status(500).json(error);
     }

@@ -17,4 +17,7 @@ router.post('/', postCtrl.create);
 // DELETE /api/posts/:postId --> DELETE FUNCTIONALITY
 router.delete('/:postId', postCtrl.postDelete); 
 
+//  PUT /api/posts/:postId --> UPDATE FUNCTIONALITY 
+router.put('/:postId', postCtrl.update); 
+
 module.exports = router; 

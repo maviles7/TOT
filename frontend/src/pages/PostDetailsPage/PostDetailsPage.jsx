@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as postService from '../../services/postService'; 
 
@@ -28,6 +29,7 @@ const postDetails = ({ user, handleDeletePost }) => {
                 <p>{post.location}</p>
                 {post.author._id === user._id && (
                     <>
+                        <Link to={`/posts/${postId}/edit`}>edit.</Link>
                         <button onClick={() => handleDeletePost(postId)}>delete.</button>
                     </>
                 )}

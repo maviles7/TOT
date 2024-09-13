@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import * as postService from '../../services/postService'; 
 
 const PostForm = (props) => {
     const [postFormData, setPostFormData] = useState({
@@ -10,6 +12,16 @@ const PostForm = (props) => {
         vibeCheck: false,
     });
 
+    const { postId } = useParams(); 
+
+    useEffect(() => {
+        const fetchPost = async () => {
+          const postData = await postService.show(postId);
+          setPostFormData(postData);
+        };
+        if (postId) fetchPost();
+      }, [postId]);
+
     const handleChange = (event) => {
         const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value; 
         setPostFormData({...postFormData, [event.target.name]: value}); 
@@ -17,12 +29,17 @@ const PostForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        props.handleAddPost(postFormData); 
+        if (postId) {
+            props.handleUpdatePost(postId, postFormData); 
+        } else {
+            props.handleAddPost(postFormData); 
+        }
     };
 
     return (
         <main>
             <form onSubmit={handleSubmit}>
+                <h1>{postId ? 'edit post' : 'new post'}</h1>
                 <label htmlFor="title-input">title:</label>
                 <input 
                     required
@@ -81,7 +98,7 @@ const PostForm = (props) => {
                     onChange={handleChange}
                 />
 
-                <button type="submit">add post.</button>
+                <button type="submit">{postId ? 'edit post' : 'add post'}</button>
             </form>
         </main>
     )

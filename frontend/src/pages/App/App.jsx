@@ -38,10 +38,16 @@ function App() {
   }; 
 
   const handleDeletePost = async (postId) => {
-    const deletePost = await postService.deletePost(postId);
-    setPosts(posts.filter((post) => post._id !== deletePost._id)); 
+    const deletedPost = await postService.deletePost(postId);
+    setPosts(posts.filter((post) => post._id !== deletedPost._id)); 
     navigate('/posts');
   };
+
+  const handleUpdatePost = async (postId, postFormData) => {
+    const updatedPost = await postService.update(postId, postFormData); 
+    setPosts(posts.map((post) => (postId === post._id ? updatedPost : post))); 
+    navigate(`/posts/${postId}`); 
+  }; 
 
   return (
     <main id="react-app">
@@ -51,8 +57,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/posts" element={<PostListPage posts={posts} />} />
-            <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user}  handleDeletePost={handleDeletePost} />}/>
+            <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
+            <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
