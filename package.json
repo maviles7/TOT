@@ -1,5 +1,5 @@
 {
-  "name": "TOT",
+  "name": "tales-of-travel",
   "version": "1.0.0",
   "scripts": {
     "start": "node ./backend/server.js",
