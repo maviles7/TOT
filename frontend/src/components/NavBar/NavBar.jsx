@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import * as authService from '../../services/authService';
 import './NavBar.css';
+import PostListPage from '../../pages/PostListPage/PostListPage';
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -14,7 +15,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       {user ? (
         <>
-          <Link to="/posts">Post List</Link>
+          <Link to="/posts">My Posts</Link>
           &nbsp; | &nbsp;
           <Link to="/posts/new">New Post</Link>
           &nbsp; | &nbsp;
