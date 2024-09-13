@@ -37,6 +37,12 @@ function App() {
     navigate('/posts'); 
   }; 
 
+  const handleDeletePost = async (postId) => {
+    const deletePost = await postService.deletePost(postId);
+    setPosts(posts.filter((post) => post._id !== deletePost._id)); 
+    navigate('/posts');
+  };
+
   return (
     <main id="react-app">
       <NavBar user={user} setUser={setUser} />
@@ -46,7 +52,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/posts" element={<PostListPage posts={posts} />} />
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
-            <Route path="/posts/:postId" element={<PostDetailsPage />}/>
+            <Route path="/posts/:postId" element={<PostDetailsPage user={user}  handleDeletePost={handleDeletePost} />}/>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

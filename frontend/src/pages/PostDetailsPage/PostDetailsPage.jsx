@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as postService from '../../services/postService'; 
 
-const postDetails = (props) => {
+const postDetails = ({ user, handleDeletePost }) => {
     const { postId } = useParams(); 
     console.log('postId: ', postId); 
 
@@ -26,6 +26,11 @@ const postDetails = (props) => {
             <header>
                 <h1>{post.title}</h1>
                 <p>{post.location}</p>
+                {post.author._id === user._id && (
+                    <>
+                        <button onClick={() => handleDeletePost(postId)}>delete.</button>
+                    </>
+                )}
             </header>
         </main>
     );
