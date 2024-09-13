@@ -8,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import PostListPage from '../PostListPage/PostListPage';
 import NewPostPage from '../NewPostPage/NewPostPage';
+import PostDetailsPage from '../PostDetailsPage/PostDetailsPage'; 
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/posts" element={<PostListPage posts={posts} />} />
             <Route path="/posts/new" element={<NewPostPage />} />
+            <Route path="/posts/:postId" element={<PostDetailsPage />}/>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
