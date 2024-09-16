@@ -40,7 +40,7 @@ const postDetails = ({ user, handleDeletePost }) => {
     return (
         <main>
             <header>
-                <h1>{post.title}</h1>
+                <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
                 <h3>{post.location}</h3>
                 <p>{post.startOfTravel}</p>
                 <p>{post.endOfTravel}</p>
