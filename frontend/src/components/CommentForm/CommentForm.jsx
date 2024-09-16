@@ -7,6 +7,7 @@ import * as commentService from '../../services/commentService';
 const CommentForm = ({ handleAddComment }) => {
     const [commentFormData, setCommentFormData] = useState({ text: '' }); 
     const { postId, commentId } = useParams();  
+    const navigate = useNavigate(); 
 
 
     useEffect(() => {
