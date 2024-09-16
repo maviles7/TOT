@@ -1,10 +1,10 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.5;
   font-weight: 400;
 
-  color: #1a1a1a;
-  background-color: whitesmoke;
+  color: teal;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,14 +32,14 @@ button {
   font-size: 2vmin;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: whitesmoke;
+  background-color: white;
+  color: teal;
+  border-color: teal;
   cursor: pointer;
 }
 button:hover {
-  background-color: white;
-  color: #1a1a1a;
-  border-color: #1a1a1a;
+  background-color: teal;
+  color: white;
 }
 button:disabled {
   background-color: grey;
@@ -50,26 +50,26 @@ a {
   padding: 0.5vmin;
   font-size: 2vmin;
   text-decoration: none;
-  color: #1a1a1a;
+  color: teal;
 }
 
 a:hover {
-  background-color: #1a1a1a;
-  color: whitesmoke;
+  background-color: teal;
+  color: white;
 }
 
 form {
   display: grid;
   gap: 1.2vmin;
   padding: 4vmin;
-  border: 0.5vmin solid #1a1a1a;
+  border: 0.5vmin solid teal;
   border-radius: 1vmin;
 }
 
 input {
   padding: 0.7vmin;
   font-size: 2vmin;
-  border: 0.3vmin solid #1a1a1a;
+  border: 0.3vmin solid teal;
   border-radius: 0.5vmin;
 }
 

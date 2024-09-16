@@ -41,7 +41,10 @@ const postDetails = ({ user, handleDeletePost }) => {
         <main>
             <header>
                 <h1>{post.title}</h1>
-                <p>{post.location}</p>
+                <h3>{post.location}</h3>
+                <p>{post.startOfTravel}</p>
+                <p>{post.endOfTravel}</p>
+                <p>{post.insight}</p>
                 {post.author._id === user._id && (
                     <>
                         <Link to={`/posts/${postId}/edit`}>edit.</Link>
@@ -52,7 +55,7 @@ const postDetails = ({ user, handleDeletePost }) => {
             <section>
                 <h2>comments</h2>
                 <CommentForm handleAddComment={handleAddComment} />
-                {!post.comments.length && <p>there are no comments</p>}
+                {!post.comments.length && <p>there are no comments.</p>}
                 {post.comments.map((comment) => (
                     <article key={comment._id}>
                         <header>
@@ -63,7 +66,7 @@ const postDetails = ({ user, handleDeletePost }) => {
                         <p>{comment.text}</p>
                         {comment.author._id === user._id && (
                                 <>
-                                    <Link to={`/posts/${postId}/comments/${comment._id}`}>edit comment.</Link>
+                                    <Link to={`/posts/${postId}/comments/${comment._id}/edit`}>edit comment.</Link>
                                     <button onClick={() =>handleDeleteComment(comment._id)}>delete comment.</button>
                                 </>
                             )}

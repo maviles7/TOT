@@ -25,7 +25,7 @@ const CommentForm = ({ handleAddComment }) => {
         event.preventDefault();
         if (postId && commentId) {
           commentService.updateComment(postId, commentId, commentFormData); 
-          Navigate(`/posts/${postId}`)
+          navigate(`/posts/${postId}`)
         } else {
           handleAddComment(commentFormData);
         }
