@@ -56,8 +56,8 @@ function App() {
       <section id="main-section">
         {user ? (
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/posts" element={<PostListPage posts={posts} />} />
+            <Route path="/" element={<HomePage posts={posts} />} />
+            <Route path="/posts" element={<PostListPage posts={posts} user={user} />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user}  handleDeletePost={handleDeletePost} />}/>
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 
-export default function PostListPage({ posts }) {
+export default function PostListPage({ posts, user }) {
 
   return ( 
     <>
     <h1>my post page</h1>
-    {posts.map((post) => (
+    {posts.filter((post) => post.author._id === user._id).map((post) => (
       <Link key={post._id} to={`/posts/${post._id}`}>
         <article>
           <header>
