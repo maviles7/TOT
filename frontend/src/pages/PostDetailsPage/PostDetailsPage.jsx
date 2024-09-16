@@ -57,12 +57,13 @@ const postDetails = ({ user, handleDeletePost }) => {
                     <article key={comment._id}>
                         <header>
                             <p>
-                                {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
+                                {comment.author.name} posted on {new Date(comment.createdAt).toLocaleDateString()}
                             </p>
                         </header>
                         <p>{comment.text}</p>
-                        {post.author._id === user._id && (
+                        {comment.author._id === user._id && (
                                 <>
+                                    <Link to={`/posts/${postId}/comments/${comment._id}`}>edit comment.</Link>
                                     <button onClick={() =>handleDeleteComment(comment._id)}>delete comment.</button>
                                 </>
                             )}

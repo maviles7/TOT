@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
+import * as postService from '../../services/postService';
 import * as commentService from '../../services/commentService'; 
 
 const CommentForm = ({ handleAddComment }) => {
     const [commentFormData, setCommentFormData] = useState({ text: '' }); 
+    const { postId, commentId } = useParams();  
+
+
+    useEffect(() => {
+      const fetchPost = async () => {
+        const postData = await postService.show(postId);
+        setCommentFormData(postData.comments.find((comment) => comment._id === commentId));
+      };
+      if (postId && commentId) fetchPost();
+    }, [postId, commentId]);
 
     const handleChange = (event) => {
         setCommentFormData({...CommentForm, [event.target.name]: event.target.value }); 
@@ -11,7 +23,12 @@ const CommentForm = ({ handleAddComment }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleAddComment(commentFormData);
+        if (postId && commentId) {
+          commentService.updateComment(postId, commentId, commentFormData); 
+          Navigate(`/posts/${postId}`)
+        } else {
+          handleAddComment(commentFormData);
+        }
         setCommentFormData({ text: '' });
       };
     

@@ -14,6 +14,7 @@ import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 
 import * as postService from '../../services/postService';
+import CommentForm from '../../components/CommentForm/CommentForm';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -60,6 +61,7 @@ function App() {
             <Route path="/posts/:postId" element={<PostDetailsPage user={user}  handleDeletePost={handleDeletePost} />}/>
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />
             <Route path="/posts/:postId/edit" element={<PostForm handleUpdatePost={handleUpdatePost} />} />
+            <Route path="/posts/:postId/comment/commentId/edit" element={<CommentForm />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

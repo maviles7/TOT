@@ -30,3 +30,19 @@ export async function create(postId, commentFormData) {
       console.log(error);
     }
   };
+
+  export async function updateComment(postId, commentId, commentFormData) {
+    try {
+      const res = await fetch(`${BASE_URL}/posts/${postId}/comments/${commentId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };

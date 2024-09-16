@@ -23,7 +23,7 @@ async function index(req, res) {
 // SHOW FUNCTIONALITY 
 async function show(req, res) {
     try {
-      const post = await Post.findById(req.params.postId).populate('author');
+      const post = await Post.findById(req.params.postId).populate('author').populate({path: 'comments', populate:{  path: 'author'}});
       res.status(200).json(post);
     } catch (error) {
       res.status(500).json(error);
