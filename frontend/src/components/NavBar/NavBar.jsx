@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
       
       {user ? (
         <>
-          <Link className="navBar" to="/">Tales of Travels</Link>
+          <Link className="navBar" to="/">Tales of Travel</Link>
           &nbsp; | &nbsp;
           <Link className="navBar" to="/posts">My Travels</Link>
           &nbsp; | &nbsp;

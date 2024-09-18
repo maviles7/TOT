@@ -37,7 +37,7 @@ const PostForm = (props) => {
     };
 
     return (
-        <main>
+        <main className="post">
             <form onSubmit={handleSubmit}>
                 <h1>{postId ? 'edit post' : 'new post'}</h1>
                 <label htmlFor="title-input">title:</label>

@@ -45,20 +45,19 @@ const postDetails = ({ user, handleDeletePost }) => {
                  <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
                 <div className="post-content">
                 <img
-                alt={`static Mapbox map of the ${post.location} bay area`}
-                src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
+                alt={`static Mapbox map of the ${post.location} area`}
+                src={`https://api.mapbox.com/styles/v1/mapbox/light-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},10,0.00,20/1000x600@2x?access_token=${accessToken}`}
                 />
                 <header>
-                   
                     <h3>{post.location}</h3>
                     <p>{new Date(post.startOfTravel).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     <p>{new Date(post.endOfTravel).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     <p>{post.insight}</p>
                     {post.author._id === user._id && (
-                        <>
+                        <div className="clicks">
                             <Link to={`/posts/${postId}/edit`}>edit.</Link>
                             <button onClick={() => handleDeletePost(postId)}>delete.</button>
-                        </>
+                        </div>
                     )}
                 </header>
                 </div>
@@ -71,7 +70,7 @@ const postDetails = ({ user, handleDeletePost }) => {
                     <article key={comment._id}>
                         <header>
                             <p className="commentHeader">
-                                {comment.author.name} posted on {new Date(comment.createdAt).toLocaleDateString()}
+                                {comment.author.name} posted on {new Date(comment.createdAt).toLocaleDateString()}:
                             </p>
                         </header>
                         <h3>{comment.text}</h3>

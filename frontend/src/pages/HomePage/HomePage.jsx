@@ -7,9 +7,10 @@ export default function HomePage({ posts, user }) {
   return ( 
     <>
     <br />
-    <h1>Explore Feed</h1>
+    {user && <h1>Explore Feed</h1>}
     {user ? (
-    posts.map((post) => (
+      <div className="homeContent">
+    {posts.map((post) => ( 
       <Link key={post._id} to={`/posts/${post._id}`}>
         <article>
           <header>
@@ -19,12 +20,17 @@ export default function HomePage({ posts, user }) {
                 src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
             />
             <h2>{post.title}</h2>
+            <p>{post.author.name}</p>
           </header>
         </article>
       </Link>
-    ))
+    ))}
+    </div>
     ) : (
+      <>
+      <h1>Tales of Travel</h1>
       <h3>Welcome to your travel log. A simple way to keep track of where you have been and what you thought.</h3>
+      </>
     )}
     </>
   ); 
