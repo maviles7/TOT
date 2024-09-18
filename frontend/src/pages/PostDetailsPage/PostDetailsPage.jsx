@@ -9,6 +9,8 @@ import * as commentService from '../../services/commentService';
 
 import CommentForm from "../../components/CommentForm/CommentForm";
 
+//
+
 // import { accessToken } from "mapbox-gl";
 // mapboxgl.accessToken = import.meta.env.VITE_MAP_BOX_TOKEN;
 
@@ -69,14 +71,14 @@ const postDetails = ({ user, handleDeletePost }) => {
                     className="map-container"
                     id='map'
                 /> */}
-
+                 <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
                 <div className="post-content">
                 <img
                 alt={`static Mapbox map of the ${post.location} bay area`}
                 src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
                 />
                 <header>
-                    <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
+                   
                     <h3>{post.location}</h3>
                     <p>{post.startOfTravel}</p>
                     <p>{post.endOfTravel}</p>
