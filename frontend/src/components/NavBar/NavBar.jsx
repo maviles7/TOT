@@ -14,23 +14,23 @@ export default function NavBar({ user, setUser }) {
       
       {user ? (
         <>
-          <Link to="/">Home</Link>
+          <Link className="navBar" to="/">Tales of Travels</Link>
           &nbsp; | &nbsp;
-          <Link to="/posts">My Posts</Link>
+          <Link className="navBar" to="/posts">My Travels</Link>
           &nbsp; | &nbsp;
-          <Link to="/posts/new">New Post</Link>
+          <Link className="navBar" to="/posts/new">New Post</Link>
           &nbsp; | &nbsp;
-          <Link to="" onClick={handleLogOut}>
+          <Link className="navBar" to="" onClick={handleLogOut}>
             Log Out
           </Link>
           &nbsp;&nbsp;
-          <span>Welcome, {user.name}</span>
+          <span>{user.name}</span>
         </>
       ) : (
         <>
-          <Link to="/login">Log In</Link>
+          <Link className="navBar" to="/login">Log In</Link>
           &nbsp;  &nbsp;
-          <Link to="/signup">Sign Up</Link>
+          <Link className="navBar" to="/signup">Sign Up</Link>
         </>
       )}
     </nav>

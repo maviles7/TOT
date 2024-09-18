@@ -1,18 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import mapboxgl from 'mapbox-gl';
-// import 'mapbox-gl/dist/mapbox-gl.css';
 
 import * as postService from '../../services/postService'; 
 import * as commentService from '../../services/commentService'; 
 
 import CommentForm from "../../components/CommentForm/CommentForm";
-
-//
-
-// import { accessToken } from "mapbox-gl";
-// mapboxgl.accessToken = import.meta.env.VITE_MAP_BOX_TOKEN;
 
 const accessToken = import.meta.env.VITE_MAP_BOX_TOKEN; 
 
@@ -21,24 +14,6 @@ const postDetails = ({ user, handleDeletePost }) => {
     console.log('postId: ', postId); 
 
     const [post, setPost] = useState(null); 
-
-    // const mapContainerRef = useRef(document.querySelector('.map-container'));
-    // const mapRef = useRef();
-    // const [map, setMap] = useState(null);
-
-    // useEffect(() => {
-    //     let container = document.querySelector('#map')
-    //     console.log(container)
-    //     console.log(mapContainerRef.current);
-    //     if (mapContainerRef.current && !map) {
-    //         const map = new mapboxgl.Map({
-    //         container: 'map',
-    //         center: [-74.5, 40], // starting position [lng, lat]
-    //         zoom: 9, // starting zoom
-    //         });
-    //         setMap(map);
-    //     }; 
-    // },[]);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -66,11 +41,7 @@ const postDetails = ({ user, handleDeletePost }) => {
     if (!post) return <main>no tales of travel, yet...</main>  
     return (
         <>
-                {/* <div
-                    ref={mapContainerRef}
-                    className="map-container"
-                    id='map'
-                /> */}
+                 <br />
                  <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
                 <div className="post-content">
                 <img
@@ -80,8 +51,8 @@ const postDetails = ({ user, handleDeletePost }) => {
                 <header>
                    
                     <h3>{post.location}</h3>
-                    <p>{post.startOfTravel}</p>
-                    <p>{post.endOfTravel}</p>
+                    <p>{new Date(post.startOfTravel).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p>{new Date(post.endOfTravel).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     <p>{post.insight}</p>
                     {post.author._id === user._id && (
                         <>
@@ -99,11 +70,11 @@ const postDetails = ({ user, handleDeletePost }) => {
                 {post.comments.map((comment) => (
                     <article key={comment._id}>
                         <header>
-                            <p>
+                            <p className="commentHeader">
                                 {comment.author.name} posted on {new Date(comment.createdAt).toLocaleDateString()}
                             </p>
                         </header>
-                        <p>{comment.text}</p>
+                        <h3>{comment.text}</h3>
                         {comment.author._id === user._id && (
                                 <>
                                     <Link to={`/posts/${postId}/comments/${comment._id}/edit`}>edit comment.</Link>

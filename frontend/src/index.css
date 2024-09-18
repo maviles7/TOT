@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
 }
 
-h1, h2 {
+h1, h2, h3, p {
   text-align: center;
 }
 
@@ -39,9 +39,12 @@ button {
   border-color: whitesmoke;
   cursor: pointer;
 }
+
 button:hover {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  text-shadow: 3px 3px 3px gray;
+
 }
 button:disabled {
   background-color: grey;
@@ -52,6 +55,11 @@ a {
   padding: 0.5vmin;
   font-size: 2vmin;
   text-decoration: none;
+  color: whitesmoke;
+}
+
+a:hover > .navBar {
+  text-shadow: 3px 3px 3px gray;
   color: whitesmoke;
 }
 
@@ -82,10 +90,6 @@ form > button:last-child {
 label {
   font-size: 2vmin;
   font-weight: bold;
-}
-
-h2 {
-  text-align: center;
 }
 
 .error-message {
