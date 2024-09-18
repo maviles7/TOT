@@ -4,6 +4,9 @@ export default function HomePage({ posts, user }) {
 
   return ( 
     <>
+    <div>
+      
+    </div>
     <h1>Tales of Travel</h1>
     {user ? (
     posts.map((post) => (

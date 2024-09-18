@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 :root {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto Mono', monospace;
   line-height: 1.5;
   font-weight: 400;
 
-  color: teal;
-  background-color: white;
+  color: whitesmoke;
+  background-color: black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,19 +28,19 @@ h1, h2 {
 }
 
 button {
-  border: 0.5vmin solid #1a1a1a;
+  border: 0.5vmin solid;
   border-radius: 0.5vmin;
   padding: 0.8vmin;
   font-size: 2vmin;
   font-weight: 500;
   font-family: inherit;
-  background-color: white;
-  color: teal;
-  border-color: teal;
+  background-color: whitesmoke;
+  color: black;
+  border-color: whitesmoke;
   cursor: pointer;
 }
 button:hover {
-  background-color: teal;
+  background-color: black;
   color: white;
 }
 button:disabled {
@@ -50,26 +52,26 @@ a {
   padding: 0.5vmin;
   font-size: 2vmin;
   text-decoration: none;
-  color: teal;
+  color: whitesmoke;
 }
 
 a:hover {
-  background-color: teal;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
 }
 
 form {
   display: grid;
   gap: 1.2vmin;
   padding: 4vmin;
-  border: 0.5vmin solid teal;
+  border: 0.25vmin solid whitesmoke;
   border-radius: 1vmin;
 }
 
 input {
   padding: 0.7vmin;
   font-size: 2vmin;
-  border: 0.3vmin solid teal;
+  border: 0.3vmin solid whitesmoke;
   border-radius: 0.5vmin;
 }
 
@@ -90,7 +92,15 @@ h2 {
   color: rgb(166, 29, 29);
 }
 
-.map-container {
-  width: 400px; 
-  height: 300px;
+img {
+  height: 20vmin; 
+  width: 30vmin;
+}
+
+.post-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  align-items: center;
+  
 }

@@ -63,34 +63,32 @@ const postDetails = ({ user, handleDeletePost }) => {
 
     if (!post) return <main>no tales of travel, yet...</main>  
     return (
-        <main>
+        <>
                 {/* <div
                     ref={mapContainerRef}
                     className="map-container"
                     id='map'
                 /> */}
 
-                <div>
+                <div className="post-content">
                 <img
-                alt="static Mapbox map of the San Francisco bay area"
-                src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/-122.337798,37.810550,9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
+                alt={`static Mapbox map of the ${post.location} bay area`}
+                src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
                 />
+                <header>
+                    <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
+                    <h3>{post.location}</h3>
+                    <p>{post.startOfTravel}</p>
+                    <p>{post.endOfTravel}</p>
+                    <p>{post.insight}</p>
+                    {post.author._id === user._id && (
+                        <>
+                            <Link to={`/posts/${postId}/edit`}>edit.</Link>
+                            <button onClick={() => handleDeletePost(postId)}>delete.</button>
+                        </>
+                    )}
+                </header>
                 </div>
-
-            <header>
-                <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
-                <h3>{post.location}</h3>
-                <p>{post.startOfTravel}</p>
-                <p>{post.endOfTravel}</p>
-                <p>{post.insight}</p>
-                {post.author._id === user._id && (
-                    <>
-                        <Link to={`/posts/${postId}/edit`}>edit.</Link>
-                        <button onClick={() => handleDeletePost(postId)}>delete.</button>
-                    </>
-                )}
-            </header>
-
            
             <section>
                 <h2>comments</h2>
@@ -113,7 +111,7 @@ const postDetails = ({ user, handleDeletePost }) => {
                     </article>
                 ))}
             </section>
-        </main>
+        </>
     );
 };
 

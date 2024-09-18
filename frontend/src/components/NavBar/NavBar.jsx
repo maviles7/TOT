@@ -29,7 +29,7 @@ export default function NavBar({ user, setUser }) {
       ) : (
         <>
           <Link to="/login">Log In</Link>
-          &nbsp; | &nbsp;
+          &nbsp;  &nbsp;
           <Link to="/signup">Sign Up</Link>
         </>
       )}

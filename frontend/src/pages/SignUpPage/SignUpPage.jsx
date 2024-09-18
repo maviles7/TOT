@@ -31,9 +31,9 @@ export default function SignUpPage({ setUser }) {
 
   return (
     <>
-      <h2>Sign Up!</h2>
+      <h2>Join TOT for free</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Name</label>
+        <label>Username</label>
         <input
           type="text"
           name="name"
@@ -57,7 +57,7 @@ export default function SignUpPage({ setUser }) {
           onChange={handleChange}
           required
         />
-        <label>Confirm</label>
+        <label>Confirm Password</label>
         <input
           type="password"
           name="confirm"
