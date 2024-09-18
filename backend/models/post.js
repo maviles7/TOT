@@ -36,6 +36,7 @@ const postSchema = new mongoose.Schema(
         vibeCheck: {
             type: Boolean,
         },
+        geocoordinates: [],
         author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, 
         comments: [commentSchema],
     },

@@ -1,4 +1,5 @@
 const Post = require('../models/post.js'); 
+const TOKEN = process.env.MAP_BOX_TOKEN
 
 module.exports = {
     index,
@@ -10,6 +11,7 @@ module.exports = {
 
 // INDEX FUNCTIONALITY 
 async function index(req, res) {
+  console.log('plssssss')
     try {
         const posts = await Post.find({})
             .populate('author')
@@ -34,6 +36,12 @@ async function show(req, res) {
 async function create(req, res) {
     console.log(req.user);
     try {
+      const location = req.body.location; 
+      const coordinates = await fetch(`https://api.mapbox.com/search/geocode/v6/forward?q=${location}&proximity=ip&access_token=${TOKEN}`); 
+      const data = await coordinates.json()
+      const geocoordinates = data.features[0].geometry.coordinates; 
+      req.body.geocoordinates = geocoordinates; 
+      console.log(geocoordinates); 
       req.body.author = req.user._id;
       const post = await Post.create(req.body);
       post._doc.author = req.user;

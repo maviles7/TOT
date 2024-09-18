@@ -23,8 +23,11 @@ function App() {
   const navigate = useNavigate(); 
 
   useEffect(() => {
+    console.log('anything')
+    console.log(user);
     const fetchAllPosts = async () => {
       const postsData = await postService.index();
+      console.log(postsData)
       // set state: 
       setPosts(postsData);
     };
@@ -56,7 +59,7 @@ function App() {
       <section id="main-section">
         {user ? (
           <Routes>
-            <Route path="/" element={<HomePage posts={posts} />} />
+            <Route path="/" element={<HomePage posts={posts} user={user}/>} />
             <Route path="/posts" element={<PostListPage posts={posts} user={user} />} />
             <Route path="/posts/:postId" element={<PostDetailsPage user={user}  handleDeletePost={handleDeletePost} />}/>
             <Route path="/posts/new" element={<PostForm handleAddPost={handleAddPost} />} />

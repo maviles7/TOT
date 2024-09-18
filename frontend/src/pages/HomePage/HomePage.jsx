@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 
-export default function HomePage({ posts }) {
+export default function HomePage({ posts, user }) {
 
   return ( 
     <>
     <h1>Tales of Travel</h1>
-    {posts.map((post) => (
+    {user ? (
+    posts.map((post) => (
       <Link key={post._id} to={`/posts/${post._id}`}>
         <article>
           <header>
@@ -14,7 +15,10 @@ export default function HomePage({ posts }) {
           <p>{post.location}</p>
         </article>
       </Link>
-    ))}
+    ))
+    ) : (
+      <h3>Welcome to your travel log. A simple way to keep track of where you have been and what you thought.</h3>
+    )}
     </>
   ); 
 };

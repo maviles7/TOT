@@ -89,3 +89,8 @@ h2 {
 .error-message {
   color: rgb(166, 29, 29);
 }
+
+.map-container {
+  width: 400px; 
+  height: 300px;
+}

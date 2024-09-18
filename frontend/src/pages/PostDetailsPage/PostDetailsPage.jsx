@@ -1,17 +1,42 @@
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import mapboxgl from 'mapbox-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 import * as postService from '../../services/postService'; 
 import * as commentService from '../../services/commentService'; 
 
 import CommentForm from "../../components/CommentForm/CommentForm";
 
+// import { accessToken } from "mapbox-gl";
+// mapboxgl.accessToken = import.meta.env.VITE_MAP_BOX_TOKEN;
+
+const accessToken = import.meta.env.VITE_MAP_BOX_TOKEN; 
+
 const postDetails = ({ user, handleDeletePost }) => {
     const { postId } = useParams(); 
     console.log('postId: ', postId); 
 
     const [post, setPost] = useState(null); 
+
+    // const mapContainerRef = useRef(document.querySelector('.map-container'));
+    // const mapRef = useRef();
+    // const [map, setMap] = useState(null);
+
+    // useEffect(() => {
+    //     let container = document.querySelector('#map')
+    //     console.log(container)
+    //     console.log(mapContainerRef.current);
+    //     if (mapContainerRef.current && !map) {
+    //         const map = new mapboxgl.Map({
+    //         container: 'map',
+    //         center: [-74.5, 40], // starting position [lng, lat]
+    //         zoom: 9, // starting zoom
+    //         });
+    //         setMap(map);
+    //     }; 
+    // },[]);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -36,9 +61,22 @@ const postDetails = ({ user, handleDeletePost }) => {
         setPost({...post, comments: post.comments.filter((comment) => comment._id !== commentId)});
       };
 
-    if (!post) return <main>idk???</main>  
+    if (!post) return <main>no tales of travel, yet...</main>  
     return (
         <main>
+                {/* <div
+                    ref={mapContainerRef}
+                    className="map-container"
+                    id='map'
+                /> */}
+
+                <div>
+                <img
+                alt="static Mapbox map of the San Francisco bay area"
+                src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/-122.337798,37.810550,9.67,0.00,0.00/1000x600@2x?access_token=${accessToken}`}
+                />
+                </div>
+
             <header>
                 <h1>{post.title} {post.vibeCheck && '🌎'}</h1>
                 <h3>{post.location}</h3>
@@ -52,6 +90,8 @@ const postDetails = ({ user, handleDeletePost }) => {
                     </>
                 )}
             </header>
+
+           
             <section>
                 <h2>comments</h2>
                 <CommentForm handleAddComment={handleAddComment} />
