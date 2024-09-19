@@ -10,6 +10,7 @@ const PostForm = (props) => {
         endofTravel: Date().toLocaleDateString, 
         insight: '',
         vibeCheck: false,
+        photo: '',
     });
 
     const { postId } = useParams(); 
@@ -77,6 +78,14 @@ const PostForm = (props) => {
                     name="endOfTravel"
                     id="end-of-travel-input"
                     value={postFormData.endofTravel}
+                    onChange={handleChange}
+                />
+
+                <label>link to imgur photo:</label>
+                <input 
+                    type="text"
+                    name="photo"
+                    value={postFormData.photo}
                     onChange={handleChange}
                 />
 

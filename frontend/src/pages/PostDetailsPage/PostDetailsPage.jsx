@@ -48,6 +48,11 @@ const postDetails = ({ user, handleDeletePost }) => {
                 alt={`static Mapbox map of the ${post.location} area`}
                 src={`https://api.mapbox.com/styles/v1/mapbox/light-v11/static/${post.geocoordinates[0]},${post.geocoordinates[1]},10,0.00,20/1000x600@2x?access_token=${accessToken}`}
                 />
+                {post.photo &&
+                <img 
+                src={`${post.photo}`}
+                />
+                    }
                 <header>
                     <h3>{post.location}</h3>
                     <p>{new Date(post.startOfTravel).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
