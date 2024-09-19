@@ -3,8 +3,7 @@
 This app was created by a love a travel. I wanted to create somewhere to track where I have been and see where others have been. I believe others might also enjoy having somewhere log thier travels. Inspiration came from both the best and worst of both VSCO and Insta. We love to love them and we love to hate them. 
 
 # Screenshot
-
-![screenshot of Tales of Travel](https://imgur.com/bffbebbe-44e3-428d-931d-c404249a7dac)
+![screenshot of Tales of Travel](https://i.imgur.com/WeL6pVA.png)
 
 
 # Technologies Used
