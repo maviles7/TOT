@@ -23,11 +23,8 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("anything");
-    console.log(user);
     const fetchAllPosts = async () => {
       const postsData = await postService.index();
-      console.log(postsData);
       // set state:
       setPosts(postsData);
     };

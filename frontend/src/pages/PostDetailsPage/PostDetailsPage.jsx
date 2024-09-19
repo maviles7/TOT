@@ -11,21 +11,20 @@ const accessToken = import.meta.env.VITE_MAP_BOX_TOKEN;
 
 const postDetails = ({ user, handleDeletePost }) => {
   const { postId } = useParams();
-  console.log("postId: ", postId);
 
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       const postData = await postService.show(postId);
-      console.log("postData: ", postData);
       setPost(postData);
     };
     fetchPost();
   }, [postId]);
 
-  // VERIFY THAT POST STATE IS BEING SET CORRECTLY
-  console.log("post state: ", post);
+
+  // Verify post data 
+  console.log(post); 
 
   const handleAddComment = async (commentFormData) => {
     const newComment = await commentService.create(postId, commentFormData);
@@ -33,7 +32,6 @@ const postDetails = ({ user, handleDeletePost }) => {
   };
 
   const handleDeleteComment = async (commentId) => {
-    console.log("commentId:", commentId);
     const deleteComment = await commentService.deleteComment(postId, commentId);
     setPost({
       ...post,
@@ -41,7 +39,7 @@ const postDetails = ({ user, handleDeletePost }) => {
     });
   };
 
-  if (!post) return <main>no tales of travel, yet...</main>;
+  if (!post) return <main>ooops. no info on this post.</main>;
   return (
     <>
       <br />

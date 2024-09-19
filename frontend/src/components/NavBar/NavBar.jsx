@@ -10,11 +10,11 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
+    <nav className='NavBar'>
       {user ? (
         <>
           <Link to="/">
-            Tales of Travel
+            TOT
           </Link>
           &nbsp; | &nbsp;
           <Link to="/posts">
@@ -33,12 +33,16 @@ export default function NavBar({ user, setUser }) {
         </>
       ) : (
         <>
-          <Link to="/login">
-            Log In
+          <Link to="/">
+            TOT
           </Link>
           &nbsp; &nbsp;
           <Link to="/signup">
             Sign Up
+          </Link>
+          &nbsp; &nbsp;
+          <Link to="/login">
+            Log In
           </Link>
         </>
       )}

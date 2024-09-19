@@ -21,11 +21,15 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 h1, h2, h3, p {
   text-align: center;
+}
+
+#homepage-title {
+  font-size: 7vh
 }
 
 p.commentHeader {
@@ -49,7 +53,6 @@ button:hover {
   background-color: whitesmoke;
   color: black;
   text-shadow: 3px 3px 3px gray;
-
 }
 
 a {
@@ -58,6 +61,18 @@ a {
   font-size: 2vmin;
   text-decoration: none;
   color: whitesmoke;
+}
+
+a.hp-links {
+  background-color: whitesmoke;
+  color: black;
+  margin: 0.75vmin;
+}
+
+a:hover.hp-links {
+  background-color: whitesmoke;
+  color: black;
+  text-shadow: 3px 3px 3px gray;
 }
 
 a:hover {
@@ -96,7 +111,7 @@ form > button:last-child {
 }
 
 label {
-  font-size: 2vmin;
+  font-size: 1.75vmin;
   font-weight: bold;
 }
 
@@ -133,6 +148,18 @@ img {
   width: 50vh;
 }
 
+.lo-imgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.lo-img {
+  padding: 2vmin;
+}
+
 .edit-delete {
   display: flex; 
   justify-content: space-evenly;
@@ -150,5 +177,23 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
+#lo-imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: whitesmoke;
+}
+
+.hp-click {
+  display: flex; 
+  justify-content: space-evenly;
+  align-items: center;;
+}

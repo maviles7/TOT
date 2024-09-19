@@ -11,7 +11,6 @@ module.exports = {
 
 // INDEX FUNCTIONALITY
 async function index(req, res) {
-  console.log("plssssss");
   try {
     const posts = await Post.find({})
       .populate("author")
@@ -36,7 +35,6 @@ async function show(req, res) {
 
 // CREATE FUNCTIONALITY
 async function create(req, res) {
-  console.log(req.user);
   try {
     const location = req.body.location;
     const coordinates = await fetch(
@@ -45,7 +43,6 @@ async function create(req, res) {
     const data = await coordinates.json();
     const geocoordinates = data.features[0].geometry.coordinates;
     req.body.geocoordinates = geocoordinates;
-    console.log(geocoordinates);
     req.body.author = req.user._id;
     const post = await Post.create(req.body);
     post._doc.author = req.user;

@@ -1,10 +1,10 @@
 # Tales of Travel 
 
-This app was created by a love a travel. I wanted to create somewhere to track where I have been and see where others have been. I believe others might also enjoy having somewhere log thier travels. 
+This app was created by a love a travel. I wanted to create somewhere to track where I have been and see where others have been. I believe others might also enjoy having somewhere log thier travels. Inspiration came from both the best and worst of both VSCO and Insta. We love to love them and we love to hate them. 
 
 # Screenshot
 
-![screenshot of Movie Moment](https://i.imgur.com/Xbu9ecY.png)
+![screenshot of Tales of Travel](blob:https://imgur.com/bffbebbe-44e3-428d-931d-c404249a7dac)
 
 
 # Technologies Used
@@ -13,8 +13,8 @@ This app was created by a love a travel. I wanted to create somewhere to track w
 - HTML
 - CSS
 - MONGODB 
-- Mongoose 
 - Express
+- Node
 - React 
 - Heroku 
 - Bcypt 

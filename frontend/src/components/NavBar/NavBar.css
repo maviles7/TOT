@@ -3,6 +3,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 2vmin;
+  position: sticky;
+  top: 0;
 }
 
 .NavBar span {
