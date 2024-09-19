@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import * as authService from '../../services/authService';
-import './NavBar.css';
-import PostListPage from '../../pages/PostListPage/PostListPage';
+import { Link } from "react-router-dom";
+import * as authService from "../../services/authService";
+import "./NavBar.css";
+// import PostListPage from '../../pages/PostListPage/PostListPage';
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -10,17 +10,22 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="NavBar">
-      
+    <nav>
       {user ? (
         <>
-          <Link className="navBar" to="/">Tales of Travel</Link>
+          <Link to="/">
+            Tales of Travel
+          </Link>
           &nbsp; | &nbsp;
-          <Link className="navBar" to="/posts">My Travels</Link>
+          <Link to="/posts">
+            My Travels
+          </Link>
           &nbsp; | &nbsp;
-          <Link className="navBar" to="/posts/new">New Post</Link>
+          <Link to="/posts/new">
+            New Post
+          </Link>
           &nbsp; | &nbsp;
-          <Link className="navBar" to="" onClick={handleLogOut}>
+          <Link to="" onClick={handleLogOut}>
             Log Out
           </Link>
           &nbsp;&nbsp;
@@ -28,9 +33,13 @@ export default function NavBar({ user, setUser }) {
         </>
       ) : (
         <>
-          <Link className="navBar" to="/login">Log In</Link>
-          &nbsp;  &nbsp;
-          <Link className="navBar" to="/signup">Sign Up</Link>
+          <Link to="/login">
+            Log In
+          </Link>
+          &nbsp; &nbsp;
+          <Link to="/signup">
+            Sign Up
+          </Link>
         </>
       )}
     </nav>

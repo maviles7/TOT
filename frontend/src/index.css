@@ -51,10 +51,6 @@ button:hover {
   text-shadow: 3px 3px 3px gray;
 
 }
-button:disabled {
-  background-color: grey;
-}
-
 
 a {
   border-radius: 0.8vmin;
@@ -64,18 +60,18 @@ a {
   color: whitesmoke;
 }
 
-a:hover.navBar {
+a:hover {
   text-shadow: 3px 3px 3px gray;
   background-color: black;
   color: whitesmoke;
 }
 
-a:hover {
+a:hover.white-background {
   background-color: whitesmoke;
   color: black;
 }
 
-.post {
+.post-form {
   width: clamp(400px, 40%, 600px);
 }
 
@@ -115,12 +111,6 @@ label {
   align-items: center;
 }
 
-img {
-  height: 30vmin; 
-  width: 40vmin;
-}
-
-
 .post-content {
   display: flex;
   justify-content: space-between;
@@ -130,27 +120,35 @@ img {
   }
 }
 
-.clicks {
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-}
-
-article {
-  margin: 1rem;
-  width: 30%;
-}
-
-.homeContent {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.detailContent {
+#detailContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
+
+img {
+  height: 40vh; 
+  width: 50vh;
+}
+
+.edit-delete {
+  display: flex; 
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.page-layout {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.home-page-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
