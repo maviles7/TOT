@@ -4,7 +4,7 @@ This app was created by a love a travel. I wanted to create somewhere to track w
 
 # Screenshot
 
-![screenshot of Tales of Travel](blob:https://imgur.com/bffbebbe-44e3-428d-931d-c404249a7dac)
+![screenshot of Tales of Travel](https://imgur.com/bffbebbe-44e3-428d-931d-c404249a7dac)
 
 
 # Technologies Used
@@ -24,7 +24,7 @@ This app was created by a love a travel. I wanted to create somewhere to track w
 
 - [Click to view Planning](https://trello.com/b/RjUZpNC7/tot-tales-of-travel)
 - [Link to GitHub Repo](https://github.com/maviles7/TOT)
-- [Click to Log-in/Sign-Up to Movie Moment!](https://moviemoment-29fea78bd2db.herokuapp.com/)
+- [Click to Log-in/Sign-Up to TOT!](https://tales-of-travel-312aa5ba5776.herokuapp.com/)
 
 # Next Steps
 

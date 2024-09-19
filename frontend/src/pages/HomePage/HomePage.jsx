@@ -50,7 +50,7 @@ export default function HomePage({ posts, user }) {
             />
           </div>
           <h3>
-            Track of where you have been and what you thought.
+            Track where you have been, what you thought, and share with the world.
           </h3>
           <h2>Tell your tales.</h2>
           <div className="hp-click">
