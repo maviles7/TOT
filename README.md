@@ -18,6 +18,7 @@ This app was created by a love a travel. I wanted to create somewhere to track w
 - Heroku 
 - Bcypt 
 - VS Code 
+- MapBox
 
 # Getting Started
 
